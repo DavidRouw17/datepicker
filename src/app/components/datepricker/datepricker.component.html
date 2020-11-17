@@ -4,8 +4,8 @@
     <div>
         <label for="inputFirstName">First name:</label>
         <input type="text" [(ngModel)]="newContact.firstName" name="firstName" id="inputFirstName" class="form-control" formControlName="voornaam" >
-        <div *ngIf="dateprickerForm.get('voornaam').invalid &&
-        dateprickerForm.get('voornaam').dirty" id='foutmelding'>Je moet wat invullen!</div>
+        <div id='foutmelding' *ngIf="dateprickerForm.get('voornaam').invalid &&
+        dateprickerForm.get('voornaam').dirty" >Je moet wat invullen!</div>
     </div>
     
     <div><label for="inputSurname">Surname:</label>
@@ -15,9 +15,11 @@
     </div>
     <div><label for="inputEmail">E-mail address:</label>
         <input type="text" [(ngModel)]="newContact.email" name="email" id="inputEmail" class="form-control" formControlName="email">
+        <div *ngIf="dateprickerForm.get('email').invalid &&
+        dateprickerForm.get('email').dirty">Geen goede email!</div>
     </div>
 
-    <button class="btn btn-primary">Add</button>
+    <button [disabled]="dateprickerForm.invalid" class="btn btn-primary">Add</button>
 </form>
 <br>
 <h2>Already entered the form:</h2>
@@ -36,7 +38,7 @@
             <td>
                 <div *ngIf="!contact.edit">{{contact.firstName}}</div>
                 <div *ngIf="contact.edit">
-                    <input type="text" [(ngModel)]="contact.firstName">
+                    <input type="text" [(ngModel)]="contact.firstName" formControlName="voornaam">
                 </div>
             </td>
             <td>
@@ -48,7 +50,7 @@
             <td>
                 <div *ngIf="!contact.edit">{{contact.email}}</div>
                 <div *ngIf="contact.edit">
-                    <input type="text" [(ngModel)]="contact.email">
+                    <input type="text" [(ngModel)]="contact.email" >
                 </div>
             </td>
             <td>

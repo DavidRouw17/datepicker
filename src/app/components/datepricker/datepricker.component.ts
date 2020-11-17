@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Contact } from 'src/app/models/contacts';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-datepricker',
@@ -8,6 +9,14 @@ import { Contact } from 'src/app/models/contacts';
   styleUrls: ['./datepricker.component.css']
 })
 export class DateprickerComponent implements OnInit {
+  contacts: Contact[] = [
+    { firstName: 'Sam', surname: 'Smith', email: 'sam.smith@music.com' },
+    { firstName: 'Frank', surname: 'Muscles', email: 'frank@muscles.com' },
+    { firstName: 'Eddy', surname: 'Valentino', email: 'eddy@valfam.co.uk' }
+  ];
+  
+  newContact = {} as Contact;
+  
   dateprickerForm: FormGroup;
 
   constructor(){
@@ -22,17 +31,12 @@ export class DateprickerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  contacts: Contact[] = [
-    { firstName: 'Sam', surname: 'Smith', email: 'sam.smith@music.com' },
-    { firstName: 'Frank', surname: 'Muscles', email: 'frank@muscles.com' },
-    { firstName: 'Eddy', surname: 'Valentino', email: 'eddy@valfam.co.uk' }
-  ];
-
-  newContact = {} as Contact;
+  
 
   addContact() {
     this.contacts.push(this.newContact);
     this.newContact = {} as Contact;
+  
   }
 
   deleteContact(c: Contact) {

@@ -3,8 +3,8 @@ form div {
 	margin: 5px;
 }
 
-#foutmelding{
-    text-emphasis-color:red;
+form div div{
+	color:red;
 }
 form label {
 	min-width: 120px;
