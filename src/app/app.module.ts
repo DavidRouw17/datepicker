@@ -9,6 +9,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { Route, RouterModule } from '@angular/router';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { ContactRowComponent } from './components/contact-row/contact-row.component';
 
 let routes: Route[] = [
   { path: '', component: HomepageComponent },
@@ -25,7 +26,8 @@ let routes: Route[] = [
     DateprickerComponent,
     HomepageComponent,
     ContactFormComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactRowComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
