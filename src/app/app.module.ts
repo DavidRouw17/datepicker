@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { DateprickerComponent } from './components/datepricker/datepricker.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { Route, RouterModule } from '@angular/router';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ContactListComponent } from './components/contact-list/contact-list.component';
 
 let routes: Route[] = [
   { path: '', component: HomepageComponent },
   { path: 'home', component: HomepageComponent },
   { path: 'datepricker', component: DateprickerComponent }
-]
+];
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ let routes: Route[] = [
   declarations: [
     AppComponent,
     DateprickerComponent,
-    HomepageComponent
+    HomepageComponent,
+    ContactFormComponent,
+    ContactListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
