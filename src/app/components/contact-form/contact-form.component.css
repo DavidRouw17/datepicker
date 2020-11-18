@@ -15,48 +15,7 @@ form label {
 input {
 	padding:9px 9px;
 }
-th, td {
-	padding: 7px;
-}
-th {
-	border-bottom: 2px solid gray;
-	text-align: left;
-	margin: 0;
-}
-td {
-	border-bottom: 1px solid lightgray;
-}
-td button { /* edit, delete and save buttons in contacts table*/
-	border: 0;
-	outline: 0;
-	cursor: pointer;
-	background: none;
-	font-family: sans-serif;
-	color: blue;
-	text-decoration: underline;
-	font-size: 1em;
-}
 
-td button:hover{
-    color: yellow;
-    background-color: teal;
-}
-
-#deleteButton{
-    border: 0;
-	outline: 0;
-	cursor: pointer;
-	background: none;
-	font-family: sans-serif;
-	color:red;
-	text-decoration: underline;
-	font-size: 1em;
-}
-
-#deleteButton:hover{
-    color: yellow;
-    background-color: teal;
-}
 
 input {
 	border: 1px solid gray;
@@ -64,12 +23,10 @@ input {
 	transition: 0.2s ease all;
 	outline: none;
 }
-td a:first-child {
-	margin-right: 10px;
-}
+
 
 input.ng-touched.ng-invalid{
-    border-width: 5px;
+    border-width: 1px;
 	border-color: red;
 	box-shadow: red;
 }

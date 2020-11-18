@@ -14,7 +14,7 @@
             <td>
                 <div *ngIf="!contact.edit">{{contact.firstName}}</div>
                 <div *ngIf="contact.edit">
-                    <input type="text" [(ngModel)]="contact.firstName" formControlName="voornaam">
+                    <input type="text" [(ngModel)]="contact.firstName">
                 </div>
             </td>
             <td>

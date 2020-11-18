@@ -6,6 +6,7 @@ import { Contact } from 'src/app/models/contacts';
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
+
 export class ContactListComponent {
 
   @Input() contacts: Contact[];

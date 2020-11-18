@@ -9,20 +9,21 @@ import { Contact } from 'src/app/models/contacts';
 })
 export class ContactFormComponent {
   @Output() add = new EventEmitter<Contact>();
-  newContact = {} as Contact;
+  
 
   dateprickerForm: FormGroup;
 
   constructor(){
       this.dateprickerForm = new FormGroup({
-        voornaam: new FormControl('', [Validators.required]),
-        achternaam: new FormControl('', [Validators.required]),
+        firstName: new FormControl('', [Validators.required]),
+        surname: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
       });
   }
 
   addContact(): void {
-    this.add.emit(this.newContact);
-    this.newContact = {} as Contact;
+    this.add.emit(this.dateprickerForm.value);
+    console.log(this.dateprickerForm);
+    this.dateprickerForm.reset();
   }
 }
