@@ -1,28 +1,34 @@
 <h2>Please enter the form</h2>
 <form [formGroup]="dateprickerForm" (ngSubmit)="addContact()">
-    <div>
-        <label for="inputFirstName">First name:</label>
-        <input type="text" id="inputFirstName" class="form-control" formControlName="firstName">
-        <div *ngIf="dateprickerForm.get('firstName').invalid &&
-        dateprickerForm.get('firstName').touched">*</div>
-        <div *ngIf="dateprickerForm.get('firstName').invalid &&
-        dateprickerForm.get('firstName').dirty">Dit is een verplicht veld!</div>
+  <div>
+    <label for="inputFirstName">First name:</label>
+    <input type="text" id="inputFirstName" class="form-control" formControlName="firstName">
+    <div *ngIf="dateprickerForm.get('firstName').invalid &&
+        dateprickerForm.get('firstName').touched">*
     </div>
+    <div *ngIf="dateprickerForm.get('firstName').invalid &&
+        dateprickerForm.get('firstName').dirty">Dit is een verplicht veld!
+    </div>
+  </div>
 
-    <div><label for="inputSurname">Surname:</label>
-        <input type="text" id="inputSurname" class="form-control" formControlName="surname">
-        <div *ngIf="dateprickerForm.get('surname').invalid &&
-        dateprickerForm.get('surname').touched">*</div>
-        <div *ngIf="dateprickerForm.get('surname').invalid &&
-        dateprickerForm.get('surname').dirty">Dit is een verplicht veld!</div>
+  <div><label for="inputSurname">Surname:</label>
+    <input type="text" id="inputSurname" class="form-control" formControlName="surname">
+    <div *ngIf="dateprickerForm.get('surname').invalid &&
+        dateprickerForm.get('surname').touched">*
     </div>
-    <div><label for="inputEmail">E-mail address:</label>
-        <input type="text" id="inputEmail" class="form-control" formControlName="email">
-        <div *ngIf="dateprickerForm.get('email').invalid &&
-        dateprickerForm.get('email').touched">*</div>
-        <div *ngIf="dateprickerForm.get('email').invalid &&
-        dateprickerForm.get('email').errors?.pattern">Vul een valide emailadres in!</div>
+    <div *ngIf="dateprickerForm.get('surname').invalid &&
+        dateprickerForm.get('surname').dirty">Dit is een verplicht veld!
     </div>
+  </div>
+  <div><label for="inputEmail">E-mail address:</label>
+    <input type="text" id="inputEmail" class="form-control" formControlName="email">
+    <div *ngIf="dateprickerForm.get('email').invalid &&
+        dateprickerForm.get('email').touched">*
+    </div>
+    <div *ngIf="dateprickerForm.get('email').invalid &&
+        dateprickerForm.get('email').errors?.pattern">Vul een valide emailadres in!
+    </div>
+  </div>
 
-    <button [disabled]="dateprickerForm.invalid" class="btn btn-primary">Add</button>
+  <button [disabled]="dateprickerForm.invalid" class="btn btn-primary">Add</button>
 </form>

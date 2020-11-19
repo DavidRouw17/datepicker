@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Contact } from 'src/app/models/contacts';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Contact} from 'src/app/models/contacts';
+import {ContactService} from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,22 +9,20 @@ import { Contact } from 'src/app/models/contacts';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent {
-  @Output() add = new EventEmitter<Contact>();
-  
-
+  contacts: Contact[];
   dateprickerForm: FormGroup;
 
-  constructor(){
-      this.dateprickerForm = new FormGroup({
-        firstName: new FormControl('', [Validators.required]),
-        surname: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-      });
+  constructor(private cs: ContactService) {
+    this.dateprickerForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+    });
+    this.contacts = cs.getContacts();
   }
 
   addContact(): void {
-    this.add.emit(this.dateprickerForm.value);
-    console.log(this.dateprickerForm);
+    this.contacts.push(this.dateprickerForm.value);
     this.dateprickerForm.reset();
   }
 }
