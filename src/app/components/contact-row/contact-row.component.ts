@@ -1,14 +1,18 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Contact} from 'src/app/models/contacts';
+import {ContactService} from '../../services/contact.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[app-contact-row]',
   templateUrl: './contact-row.component.html',
   styleUrls: ['./contact-row.component.css']
 })
 export class ContactRowComponent {
   @Input() contact: Contact;
-  @Output() remove = new EventEmitter<Contact>();
+
+  constructor(private cs: ContactService) {
+  }
 
   editContact(c: Contact): void {
     c.edit = true;
@@ -16,10 +20,11 @@ export class ContactRowComponent {
 
   saveContact(c: Contact): void {
     c.edit = false;
+    this.cs.updateContact(c);
   }
 
   deleteContact(c: Contact): void {
-    this.remove.emit(c);
+    this.cs.deleteContact(c);
   }
 }
 

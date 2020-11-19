@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Contact} from 'src/app/models/contacts';
 import {ContactService} from '../../services/contact.service';
 
@@ -8,21 +8,9 @@ import {ContactService} from '../../services/contact.service';
   styleUrls: ['./contact-list.component.css']
 })
 
-export class ContactListComponent implements OnInit {
-  contacts: Contact[];
+export class ContactListComponent {
+  contacts$ = this.cs.getAll();
 
   constructor(private cs: ContactService) {
   }
-
-  ngOnInit(): void {
-    this.contacts = this.cs.getContacts();
-  }
-
-  deleteContact(c: Contact): void {
-    const index = this.contacts.indexOf(c, 0);
-    if (index > -1) {
-      this.contacts.splice(index, 1);
-    }
-  }
-
 }

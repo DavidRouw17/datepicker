@@ -18,11 +18,11 @@ export class ContactFormComponent {
       surname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
     });
-    this.contacts = cs.getContacts();
+    // this.contacts = cs.getContacts();
   }
 
   addContact(): void {
-    this.contacts.push(this.dateprickerForm.value);
+    this.cs.addContact(this.dateprickerForm.value);
     this.dateprickerForm.reset();
   }
 }

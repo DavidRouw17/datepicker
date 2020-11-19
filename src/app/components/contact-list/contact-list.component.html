@@ -1,14 +1,14 @@
 <h2>Already entered the form:</h2>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>E-mail address</th>
-            <th>Options</th>
-        </tr>
-    </thead>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>E-mail address</th>
+    <th>Options</th>
+  </tr>
+  </thead>
 
-    <tbody>
-        <tr *ngFor="let contact of contacts" app-contact-row [contact]=contact (remove) = 'deleteContact($event)'> </tr>
-    </tbody>
+  <tbody>
+  <tr *ngFor="let contact of contacts$ | async" app-contact-row [contact]=contact></tr>
+  </tbody>
 </table>
