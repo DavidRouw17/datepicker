@@ -10,6 +10,7 @@ import { Route, RouterModule } from '@angular/router';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactRowComponent } from './components/contact-row/contact-row.component';
+import { ContactNamePipe } from './pipes/contact-name.pipe';
 
 let routes: Route[] = [
   { path: '', component: HomepageComponent },
@@ -27,7 +28,8 @@ let routes: Route[] = [
     HomepageComponent,
     ContactFormComponent,
     ContactListComponent,
-    ContactRowComponent
+    ContactRowComponent,
+    ContactNamePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
